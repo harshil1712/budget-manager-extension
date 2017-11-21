@@ -1,4 +1,7 @@
 $(function(){
+	chrome.storage.sync.get('total',function(budget){
+		$('#total').text(budget.total);
+	})
 	$('#spendAmount').click(function(){
 		//Calling the Chrome Storage API to get
 		chrome.storage.sync.get('total',function(budget){
