@@ -1,6 +1,7 @@
 $(function(){
-	chrome.storage.sync.get('total',function(budget){
+	chrome.storage.sync.get(['total','limit'],function(budget){
 		$('#total').text(budget.total);
+		$('#limit').text(budget.limit);
 	})
 	$('#spendAmount').click(function(){
 		//Calling the Chrome Storage API to get
@@ -10,7 +11,7 @@ $(function(){
 			if(budget.total){
 				newTotal += parseInt(budget.total);
 			}
-			//Getting datat from the input field
+			//Getting data from the input field
 			var amount = $('#amount').val();
 			if(amount){
 				newTotal += parseInt(amount);
